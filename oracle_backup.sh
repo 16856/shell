@@ -1,4 +1,3 @@
-# carter
 #!/bin/bash
 
 
@@ -66,7 +65,8 @@ shell_unlock(){
 
 # Backup Oracle Database with archived log files.
 database_backup(){
-        if [ -f "$LOCK_FILE" ];then
+        if [ -f "$LOCK_FILE" ];
+        then
         
                 shell_log "${SHELL_NAME} is running"
                 echo "${SHELL_NAME} is running" && exit
@@ -82,7 +82,8 @@ database_backup(){
 
 # Backup Oracle all archived log files.
 archivelog_backup(){
-        if [ -f "$LOCK_FILE" ];then
+        if [ -f "$LOCK_FILE" ];
+        then
 
                 shell_log "${SHELL_NAME} is running"
                 echo "${SHELL_NAME} is running" && exit
@@ -98,7 +99,8 @@ archivelog_backup(){
 
 # Purge history expired oracle backupsets.
 purge_backupset(){
-        if [ -f "$LOCK_FILE" ];then
+        if [ -f "$LOCK_FILE" ];
+        then
 
                 shell_log "${SHELL_NAME} is running"
                 echo "${SHELL_NAME} is running" && exit
