@@ -37,3 +37,15 @@ while [  $COUNTER -lt 75 ]; do
     sleep 3
     let COUNTER=COUNTER+1   
 done  
+
+#--------------------------------------------------------------------------------------------------
+# just use for linux platform,  Carter qiu  2017-11-28
+#!/bin/bash
+
+DATE=`date +%Y%m%d`
+NODENAME=`hostname`
+OUTPUT=$NODENAME.$DATE.vmstat
+
+
+#header= c('procs_r','procs_b','memory_swpd','memory_free','memory_inact','memory_active','swap_si','swap_so','io_bi','io_bo','system_in','system_cs','cpu_us','cpu_sy','cpu_id','cpu_wa','cpu_st','timestamp')
+vmstat -t -a -Sm 5 17200 > OUTPUT/$OUTPUT
