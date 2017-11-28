@@ -38,3 +38,16 @@ while [  $COUNTER -lt 75 ]; do
     let COUNTER=COUNTER+1   
 done  
 
+
+# ------------------------------------------------------------------------------------------------------------
+#!/bin/bash
+
+DATE=`date +%Y%m%d`
+NODENAME=`hostname`
+OUTPUT=$NODENAME.$DATE.iostat
+
+export LANG=en_US
+export S_TIME_FORMAT=ISO
+
+#header=c('timestamp','Device','rrqm_s','wrqm_s','rs','ws','rMBs','wMBs','avgrq-sz','avgqu-sz','await','svctm','busy_util')
+iostat -dtmx /dev/dm* 5 7200 | awk '/0800$/{T=$0;next;}{if ( NF>0 ) print T "\t" $0;}' > OUTPUT/$OUTPUT
